@@ -32,6 +32,7 @@ class BaseRequest extends FormRequest
             'date' => 'O campo :attribute deve ser uma data válida',
             'date_format' => 'O campo :attribute deve ser uma data válida',
             'unique' => 'O campo :attribute já existe',
+            'numeric' => 'O campo :attribute deve ser um número',
         ];
     }
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\PatientController;
+use App\Http\Controllers\Api\ProceedingController;
 use App\Http\Controllers\Api\SpecialtieController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,4 +19,5 @@ use Illuminate\Support\Facades\Route;
 Route::apiResources([
     'pacientes' => PatientController::class,
     'especialidades' => SpecialtieController::class,
+    'procedimentos' => ProceedingController::class,
 ]);
