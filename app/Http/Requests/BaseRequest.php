@@ -26,7 +26,7 @@ class BaseRequest extends FormRequest
     public function messages()
     {
         return [
-            'required' => 'O campo :attribute é obrigatório', 'numeric',
+            'required' => 'O campo :attribute é obrigatório',
             'string' => 'O campo :attribute deve ser uma string',
             'max' => 'O campo :attribute deve ter no máximo :max caracteres',
             'date' => 'O campo :attribute deve ser uma data válida',
