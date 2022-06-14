@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\HealthPlanController;
 use App\Http\Controllers\Api\PatientController;
 use App\Http\Controllers\Api\ProceedingController;
 use App\Http\Controllers\Api\SpecialtieController;
@@ -20,4 +21,5 @@ Route::apiResources([
     'pacientes' => PatientController::class,
     'especialidades' => SpecialtieController::class,
     'procedimentos' => ProceedingController::class,
+    'planos' => HealthPlanController::class,
 ]);
