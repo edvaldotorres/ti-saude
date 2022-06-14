@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProceedingRequest;
 use App\Models\Proceeding;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class ProceedingController extends Controller
 {
@@ -13,7 +14,7 @@ class ProceedingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(): JsonResponse
     {
         $proceedings = Proceeding::simplePaginate(5);
         if ($proceedings->isEmpty()) {
@@ -29,7 +30,7 @@ class ProceedingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProceedingRequest $request)
+    public function store(ProceedingRequest $request): JsonResponse
     {
         Proceeding::create($request->validated());
         return $this->created('Procedimento criado com sucesso.');
@@ -41,7 +42,7 @@ class ProceedingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id): JsonResponse
     {
         $proceeding = Proceeding::find($id);
         if (empty($proceeding)) {
@@ -58,7 +59,7 @@ class ProceedingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ProceedingRequest $request, $id)
+    public function update(ProceedingRequest $request, $id): JsonResponse
     {
         $proceeding = Proceeding::find($id);
         if (empty($proceeding)) {
@@ -75,7 +76,7 @@ class ProceedingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id): JsonResponse
     {
         $proceeding = Proceeding::find($id);
         if (empty($proceeding)) {
