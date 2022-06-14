@@ -34,6 +34,8 @@ class BaseRequest extends FormRequest
             'unique' => 'O campo :attribute já existe',
             'numeric' => 'O campo :attribute deve ser um número',
             'exists' => 'O campo :attribute não existe',
+            'in' => 'O campo :attribute deve ser um valor válido',
+            'date_format.H:i' => 'O campo :attribute deve ser uma hora válida',
         ];
     }
 
