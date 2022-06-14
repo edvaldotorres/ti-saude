@@ -31,7 +31,6 @@ class BaseRequest extends FormRequest
             'max' => 'O campo :attribute deve ter no máximo :max caracteres',
             'date' => 'O campo :attribute deve ser uma data válida',
             'date_format' => 'O campo :attribute deve ser uma data válida',
-            'unique' => 'O campo :attribute já existe',
             'numeric' => 'O campo :attribute deve ser um número',
             'exists' => 'O campo :attribute não existe',
             'in' => 'O campo :attribute deve ser um valor válido',

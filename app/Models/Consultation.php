@@ -10,7 +10,6 @@ class Consultation extends BaseModel
      * @var array<int, string>
      */
     protected $fillable = [
-        'cons_code',
         'doctor_id',
         'patient_id',
         'consultation_type',

@@ -10,7 +10,6 @@ class Doctor extends BaseModel
      * @var array<int, string>
      */
     protected $fillable = [
-        'doc_code',
         'doc_name',
         'doc_crm',
         'specialtie_id',

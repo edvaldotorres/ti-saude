@@ -10,7 +10,6 @@ class Proceeding extends BaseModel
      * @var array<int, string>
      */
     protected $fillable = [
-        'proc_code',
         'proc_name',
         'proc_price',
     ];

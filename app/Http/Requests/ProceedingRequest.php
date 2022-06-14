@@ -12,7 +12,6 @@ class ProceedingRequest extends BaseRequest
     public function rules()
     {
         return [
-            'proc_code' => (!empty($this->route('procedimento')) ? 'required|string|max:255|unique:proceedings,proc_code,' . $this->route('procedimento') : 'required|string|max:255|unique:proceedings,proc_code'),
             'proc_name' => 'required|string|max:255',
             'proc_price' => 'required|numeric',
         ];

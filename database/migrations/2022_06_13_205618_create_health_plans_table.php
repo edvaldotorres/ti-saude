@@ -14,8 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('health_plans', function (Blueprint $table) {
-            $table->id();
-            $table->string('hp_code')->unique();
+            $table->id('hp_code');
             $table->text('hp_description');
             $table->string('hp_telephone');
             $table->timestamps();

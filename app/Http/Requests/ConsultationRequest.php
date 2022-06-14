@@ -12,7 +12,6 @@ class ConsultationRequest extends BaseRequest
     public function rules()
     {
         return [
-            'cons_code' => (!empty($this->route('consulta')) ? 'required|string|max:255|unique:consultations,cons_code,' . $this->route('consulta') : 'required|string|max:255|unique:consultations,cons_code'),
             'doctor_id' => 'required|integer|exists:doctors,id',
             'patient_id' => 'required|integer|exists:patients,id',
             'consultation_type' => 'required|in:0,1',

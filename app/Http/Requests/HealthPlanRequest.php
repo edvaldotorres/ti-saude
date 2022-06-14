@@ -12,7 +12,6 @@ class HealthPlanRequest extends BaseRequest
     public function rules()
     {
         return [
-            'hp_code' => (!empty($this->route('plano')) ? 'required|string|max:255|unique:health_plans,hp_code,' . $this->route('plano') : 'required|string|max:255|unique:health_plans,hp_code'),
             'hp_description' => 'required',
             'hp_telephone' => 'required|string',
         ];

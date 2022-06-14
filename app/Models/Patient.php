@@ -10,7 +10,6 @@ class Patient extends BaseModel
      * @var array<int, string>
      */
     protected $fillable = [
-        'pat_code',
         'pat_name',
         'pat_birth',
         'pat_telephone',

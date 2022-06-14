@@ -10,7 +10,6 @@ class Specialtie extends BaseModel
      * @var array<int, string>
      */
     protected $fillable = [
-        'spec_code',
         'spec_name',
     ];
 }

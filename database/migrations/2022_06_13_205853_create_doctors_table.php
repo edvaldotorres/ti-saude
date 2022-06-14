@@ -14,8 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('doctors', function (Blueprint $table) {
-            $table->id();
-            $table->string('doc_code')->unique();
+            $table->id('doc_code');
             $table->string('doc_name');
             $table->string('doc_crm');
             $table->unsignedBigInteger('specialtie_id');

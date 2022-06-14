@@ -12,7 +12,6 @@ class SpecialtieRequest extends BaseRequest
     public function rules()
     {
         return [
-            'spec_code' => (!empty($this->route('especialidade')) ? 'required|string|max:255|unique:specialties,spec_code,' . $this->route('especialidade') : 'required|string|max:255|unique:specialties,spec_code'),
             'spec_name' => 'required|string|max:255',
         ];
     }

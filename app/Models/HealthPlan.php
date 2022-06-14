@@ -10,7 +10,6 @@ class HealthPlan extends BaseModel
      * @var array<int, string>
      */
     protected $fillable = [
-        'hp_code',
         'hp_description',
         'hp_telephone',
     ];
