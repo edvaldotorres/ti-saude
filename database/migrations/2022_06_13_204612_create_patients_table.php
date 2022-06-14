@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('pat_code')->unique();
             $table->string('pat_name');
             $table->date('pat_birth');
+            $table->json('pat_telephone');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -13,6 +13,16 @@ class Patient extends BaseModel
         'pat_code',
         'pat_name',
         'pat_birth',
+        'pat_telephone',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array<int, string>
+     */
+    protected $casts = [
+        'pat_telephone' => 'array',
     ];
 
     /**

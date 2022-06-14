@@ -17,9 +17,10 @@ class PatientRequest extends BaseRequest
          * @return array<string, mixed>
          */
         return [
-            'pat_code' => (!empty($this->route('paciente')) ? 'required|string|max:255|unique:patients,pat_code,' . $this->route('paciente') : 'required|string|max:255|unique:patients,pat_code'),            
+            'pat_code' => (!empty($this->route('paciente')) ? 'required|string|max:255|unique:patients,pat_code,' . $this->route('paciente') : 'required|string|max:255|unique:patients,pat_code'),
             'pat_name' => 'required|string|max:255',
             'pat_birth' => 'required|date|date_format:d/m/Y',
+            'pat_telephone' => 'required|array',
         ];
     }
 }
