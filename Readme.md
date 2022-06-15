@@ -17,8 +17,6 @@
 ## Prerequisites
 
 * Docker
-* PHP 7.3+
-* Composer 2.0
 
 ## Install
 
