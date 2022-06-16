@@ -21,7 +21,7 @@ trait Responses
     }
 
     /**
-     * @param array $data
+     * @param $data
      * @return JsonResponse
      */
     protected function successWithArgs(
@@ -96,12 +96,12 @@ trait Responses
         ], Response::HTTP_CREATED);
     }
 
-        /**
-     * @param $messenge
+    /**
+     * @param string $messenge
      * @return JsonResponse
      */
     protected function unauthorized(
-        $message = null
+        string $message = null
     ): JsonResponse {
         return response()->json([
             'status' => 'error',

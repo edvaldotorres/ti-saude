@@ -27,7 +27,6 @@ Route::get('/', function () {
 Route::controller(AuthController::class)->group(function () {
     Route::post('login', 'login');
     Route::post('registro', 'register');
-    Route::get('me', 'me');
 });
 
 Route::group(['middleware' => 'jwt.api'], function () {
@@ -39,4 +38,5 @@ Route::group(['middleware' => 'jwt.api'], function () {
         'medicos' => DoctorController::class,
         'consultas' => ConsultationController::class,
     ]);
+    Route::get('me', [AuthController::class, 'me']);
 });
