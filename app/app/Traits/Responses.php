@@ -87,7 +87,7 @@ trait Responses
     ): JsonResponse {
         return response()->json([
             'status' => 'success',
-            'messenge' => 'User created successfully',
+            'messenge' => 'Usuario criado com sucesso.',
             'user' => $user,
             'authorisation' => [
                 'access_token' => $token,
@@ -105,7 +105,7 @@ trait Responses
     ): JsonResponse {
         return response()->json([
             'status' => 'error',
-            'messenge' => $message ?? 'Unauthorized',
+            'messenge' => $message ?? 'Não autorizado.',
         ], Response::HTTP_UNAUTHORIZED);
     }
 }

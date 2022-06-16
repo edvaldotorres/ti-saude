@@ -12,7 +12,7 @@ class AuthRequest extends BaseRequest
     public function rules()
     {
         return [
-            'email' => 'required|email|unique:users',
+            'email' => 'required|string|email|max:255',
             'password' => 'required|min:6',
         ];
     }
