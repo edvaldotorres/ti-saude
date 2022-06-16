@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-class HealthPlanRequest extends BaseRequest
+class PlanRequest extends BaseRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -12,8 +12,8 @@ class HealthPlanRequest extends BaseRequest
     public function rules()
     {
         return [
-            'hp_description' => 'required',
-            'hp_telephone' => 'required|string',
+            'plan_description' => 'required',
+            'plan_telephone' => 'required|string',
         ];
     }
 }

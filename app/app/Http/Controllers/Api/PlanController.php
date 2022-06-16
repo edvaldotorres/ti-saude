@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\HealthPlanRequest;
-use App\Models\HealthPlan;
+use App\Http\Requests\PlanRequest;
+use App\Models\Plan;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-class HealthPlanController extends Controller
+class PlanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,12 +16,12 @@ class HealthPlanController extends Controller
      */
     public function index(): JsonResponse
     {
-        $healthPlans = HealthPlan::simplePaginate(5);
-        if ($healthPlans->isEmpty()) {
+        $plans = Plan::simplePaginate(5);
+        if ($plans->isEmpty()) {
             return $this->notFound('Nenhum plano de saúde encontrado.');
         }
 
-        return $this->successWithArgs($healthPlans);
+        return $this->successWithArgs($plans);
     }
 
     /**
@@ -30,9 +30,9 @@ class HealthPlanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(HealthPlanRequest $request): JsonResponse
+    public function store(PlanRequest $request): JsonResponse
     {
-        HealthPlan::create($request->validated());
+        Plan::create($request->validated());
         return $this->created('Plano de saúde criado com sucesso.');
     }
 
@@ -44,12 +44,12 @@ class HealthPlanController extends Controller
      */
     public function show($id): JsonResponse
     {
-        $healthPlan = HealthPlan::find($id);
-        if (empty($healthPlan)) {
+        $plan = Plan::find($id);
+        if (empty($plan)) {
             return $this->notFound('Plano de saúde não encontrado.');
         }
 
-        return $this->successWithArgs($healthPlan);
+        return $this->successWithArgs($plan);
     }
 
     /**
@@ -59,15 +59,15 @@ class HealthPlanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(HealthPlanRequest $request, $id): JsonResponse
+    public function update(PlanRequest $request, $id): JsonResponse
     {
-        $healthPlan = HealthPlan::find($id);
-        if (empty($healthPlan)) {
+        $plan = Plan::find($id);
+        if (empty($plan)) {
             return $this->notFound('Plano de saúde não encontrado.');
         }
 
-        $healthPlan->update($request->validated());
-        return $this->successWithArgs($healthPlan);
+        $plan->update($request->validated());
+        return $this->successWithArgs($plan);
     }
 
     /**
@@ -78,12 +78,12 @@ class HealthPlanController extends Controller
      */
     public function destroy($id): JsonResponse
     {
-        $healthPlan = HealthPlan::find($id);
-        if (empty($healthPlan)) {
+        $plan = Plan::find($id);
+        if (empty($plan)) {
             return $this->notFound('Plano de saúde não encontrado.');
         }
 
-        $healthPlan->delete();
+        $plan->delete();
         return $this->success('Plano de saúde excluído com sucesso.');
     }
 }

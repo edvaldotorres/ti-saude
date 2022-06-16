@@ -21,7 +21,7 @@ class PatientController extends Controller
             return $this->notFound('Nenhum paciente encontrado.');
         }
 
-        return $this->successWithArgs($patients);
+        return $this->successWithArgs($patients->load('plans'));
     }
 
     /**
@@ -32,7 +32,9 @@ class PatientController extends Controller
      */
     public function store(PatientRequest $request): JsonResponse
     {
-        Patient::create($request->validated());
+        $patient = Patient::create($request->validated());
+        $patient->plans()->attach($request->get('plan_id'));
+
         return $this->created('Paciente criado com sucesso.');
     }
 
@@ -49,7 +51,7 @@ class PatientController extends Controller
             return $this->notFound('Paciente não encontrado.');
         }
 
-        return $this->successWithArgs($patient);
+        return $this->successWithArgs($patient->load('plans'));
     }
 
     /**
@@ -67,7 +69,9 @@ class PatientController extends Controller
         }
 
         $patient->update($request->validated());
-        return $this->successWithArgs($patient);
+        $patient->plans()->sync($request->get('plan_id'));
+
+        return $this->successWithArgs($patient->load('plans'));
     }
 
     /**

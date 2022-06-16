@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class HealthPlan extends BaseModel
+class Plan extends BaseModel
 {
     /**
      * The attributes that are mass assignable.
@@ -10,7 +10,7 @@ class HealthPlan extends BaseModel
      * @var array<int, string>
      */
     protected $fillable = [
-        'hp_description',
-        'hp_telephone',
+        'plan_description',
+        'plan_telephone',
     ];
 }
