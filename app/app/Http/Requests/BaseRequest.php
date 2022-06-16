@@ -35,6 +35,9 @@ class BaseRequest extends FormRequest
             'exists' => 'O campo :attribute não existe',
             'in' => 'O campo :attribute deve ser um valor válido',
             'date_format.H:i' => 'O campo :attribute deve ser uma hora válida',
+            'email' => 'O campo :attribute deve ser um e-mail válido',
+            'unique' => 'O campo :attribute já existe',
+            'min' => 'O campo :attribute deve ter no mínimo :min caracteres',
         ];
     }
 

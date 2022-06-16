@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ConsultationController;
 use App\Http\Controllers\Api\DoctorController;
 use App\Http\Controllers\Api\HealthPlanController;
@@ -19,11 +20,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::apiResources([
-    'pacientes' => PatientController::class,
-    'especialidades' => SpecialtieController::class,
-    'procedimentos' => ProceedingController::class,
-    'planos' => HealthPlanController::class,
-    'medicos' => DoctorController::class,
-    'consultas' => ConsultationController::class,
-]);
+Route::get('/', function () {
+    return response()->json(['messenge' => 'Bem-vindo a API da ti.saude']);
+});
+
+Route::controller(AuthController::class)->group(function () {
+    Route::post('login', 'login');
+    Route::post('registro', 'register');
+    Route::get('me', 'me');
+});
+
+Route::group(['middleware' => 'jwt.api'], function () {
+    Route::apiResources([
+        'pacientes' => PatientController::class,
+        'especialidades' => SpecialtieController::class,
+        'procedimentos' => ProceedingController::class,
+        'planos' => HealthPlanController::class,
+        'medicos' => DoctorController::class,
+        'consultas' => ConsultationController::class,
+    ]);
+});

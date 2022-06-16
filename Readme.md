@@ -50,29 +50,24 @@ chmod -R 777 storage/
 > #mysql --password=  --execute='create database db'
 > #exit
 
-6. Copy .env File
-
-```sh
-cp .env.example .env
-```
-7. Generate APP_KEY Key.
-
-```sh
-php artisan key:generate
-```
-8. Install the dependencies
+6. Install the dependencies
 
 ```sh
 docker exec -it app composer install
 ```
-9. Build the migrate.
+7. Generate APP_KEY
+
+```sh
+php artisan key:generate
+```
+8. Build the migrate.
 
 ```sh
 docker exec -it app php artisan migrate
 ```
 ## Usage
 
-1. You can now open your application with API platform: http://localhost/api/
+1. You can now open your application with API platform: https://localhost/api/
 
 ## Author
 

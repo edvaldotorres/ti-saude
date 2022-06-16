@@ -57,4 +57,55 @@ trait Responses
             'messenge' => $messenge,
         ], Response::HTTP_NOT_FOUND);
     }
+
+    /**
+     * @param string $token
+     * @return JsonResponse
+     */
+    protected function respondWithToken(
+        string $token
+    ): JsonResponse {
+        return response()->json([
+            'status' => 'success',
+            'user' => auth('api')->user(),
+            'authorisation' => [
+                'access_token' => $token,
+                'token_type' => 'bearer',
+                'expires_in' => auth('api')->factory()->getTTL() * 60,
+            ]
+        ], Response::HTTP_OK);
+    }
+
+    /**
+     * @param array $user
+     * @param $token
+     * @return JsonResponse
+     */
+    protected function respondWithTokenRegister(
+        array $user,
+        $token
+    ): JsonResponse {
+        return response()->json([
+            'status' => 'success',
+            'messenge' => 'User created successfully',
+            'user' => $user,
+            'authorisation' => [
+                'access_token' => $token,
+                'token_type' => 'bearer',
+            ]
+        ], Response::HTTP_CREATED);
+    }
+
+        /**
+     * @param $messenge
+     * @return JsonResponse
+     */
+    protected function unauthorized(
+        $message = null
+    ): JsonResponse {
+        return response()->json([
+            'status' => 'error',
+            'messenge' => $message ?? 'Unauthorized',
+        ], Response::HTTP_UNAUTHORIZED);
+    }
 }

@@ -17,7 +17,6 @@ class AuthController extends Controller
     public function login(AuthRequest $request): JsonResponse
     {
         $token = auth('api')->attempt($request->only('email', 'password'));
-
         if (!$token) {
             return $this->unauthorized();
         }
@@ -33,7 +32,16 @@ class AuthController extends Controller
     public function register(AuthRequest $request): JsonResponse
     {
         $user = User::create($request->validated());
-
         return $this->respondWithTokenRegister($user->toArray(), auth('api')->login($user));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function me(): JsonResponse
+    {
+        return $this->successWithArgs(auth('api')->user());
     }
 }
