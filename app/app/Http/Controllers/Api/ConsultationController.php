@@ -21,7 +21,7 @@ class ConsultationController extends Controller
             return $this->notFound('Nenhuma consulta encontrada.');
         }
 
-        return $this->successWithArgs($consultations);
+        return $this->successWithArgs($consultations->load('proceedings'));
     }
 
     /**
@@ -51,7 +51,7 @@ class ConsultationController extends Controller
             return $this->notFound('Consulta não encontrada.');
         }
 
-        return $this->successWithArgs($consultation);
+        return $this->successWithArgs($consultation->load('proceedings'));
     }
 
     /**
@@ -70,8 +70,8 @@ class ConsultationController extends Controller
 
         $consultation->update($request->validated());
         $consultation->proceedings()->sync($request->get('proceeding_id'));
-        
-        return $this->successWithArgs($consultation);
+
+        return $this->successWithArgs($consultation->load('proceedings'));
     }
 
     /**
