@@ -21,7 +21,7 @@ class DoctorController extends Controller
             return $this->notFound('Nenhum médico encontrado.');
         }
 
-        return $this->successWithArgs($doctors);
+        return $this->successWithArgs($doctors->load('specialtie'));
     }
 
     /**
@@ -49,7 +49,7 @@ class DoctorController extends Controller
             return $this->notFound('Médico não encontrado.');
         }
 
-        return $this->successWithArgs($doctor);
+        return $this->successWithArgs($doctor->load('specialtie'));
     }
 
     /**
@@ -67,7 +67,7 @@ class DoctorController extends Controller
         }
 
         $doctor->update($request->validated());
-        return $this->successWithArgs($doctor);
+        return $this->successWithArgs($doctor->load('specialtie'));
     }
 
     /**
