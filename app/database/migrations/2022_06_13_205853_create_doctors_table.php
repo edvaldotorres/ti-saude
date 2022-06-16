@@ -14,11 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('doctors', function (Blueprint $table) {
-            $table->id('doc_code');
+            $table->id();
             $table->string('doc_name');
             $table->string('doc_crm');
-            $table->unsignedBigInteger('spec_code');
-            $table->foreign('spec_code')->references('spec_code')->on('specialties');
+            $table->unsignedBigInteger('specialtie_id');
+            $table->foreign('specialtie_id')->references('id')->on('specialties');
             $table->timestamps();
             $table->softDeletes();
         });

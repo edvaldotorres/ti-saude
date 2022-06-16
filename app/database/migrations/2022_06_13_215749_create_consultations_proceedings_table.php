@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('consultations_proceedings', function (Blueprint $table) {
+        Schema::create('consultation_proceeding', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('cons_code');
-            $table->foreign('cons_code')->references('cons_code')->on('consultations');
-            $table->unsignedBigInteger('proc_code');
-            $table->foreign('proc_code')->references('proc_code')->on('proceedings');  
+            $table->unsignedBigInteger('consultation_id');
+            $table->foreign('consultation_id')->references('id')->on('consultations');
+            $table->unsignedBigInteger('proceeding_id');
+            $table->foreign('proceeding_id')->references('id')->on('proceedings');
             $table->timestamps();
         });
     }

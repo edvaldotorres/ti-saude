@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('patients', function (Blueprint $table) {
-            $table->id('pat_code');
+            $table->id();
             $table->string('pat_name');
             $table->date('pat_birth');
             $table->json('pat_telephone');

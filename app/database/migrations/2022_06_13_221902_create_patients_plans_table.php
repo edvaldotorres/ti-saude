@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('patients_plans', function (Blueprint $table) {
             $table->id();
             $table->string('pp_contract');
-            $table->unsignedBigInteger('pat_code');
-            $table->foreign('pat_code')->references('pat_code')->on('patients');
-            $table->unsignedBigInteger('hp_code');
-            $table->foreign('hp_code')->references('hp_code')->on('health_plans');
+            $table->unsignedBigInteger('patient_id');
+            $table->foreign('patient_id')->references('id')->on('patients');
+            $table->unsignedBigInteger('health_plan_id');
+            $table->foreign('health_plan_id')->references('id')->on('health_plans');
             $table->timestamps();
             $table->softDeletes();
         });

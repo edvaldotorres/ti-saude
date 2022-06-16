@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('proceedings', function (Blueprint $table) {
-            $table->id('proc_code');
+            $table->id();
             $table->string('proc_name');    
             $table->float('proc_price');    
             $table->timestamps();

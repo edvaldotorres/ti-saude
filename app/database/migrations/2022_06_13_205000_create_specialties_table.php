@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('specialties', function (Blueprint $table) {
-            $table->id('spec_code');
+            $table->id();
             $table->string('spec_name');
             $table->timestamps();
             $table->softDeletes();
