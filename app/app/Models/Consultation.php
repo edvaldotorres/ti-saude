@@ -26,7 +26,9 @@ class Consultation extends BaseModel
      *
      * @var array<int, string>
      */
-    protected $cascadeDeletes = ['proceedings'];
+    protected $cascadeDeletes = [
+        'proceedings'
+    ];
 
     /**
      * The attributes that should be cast to native types.
