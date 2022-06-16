@@ -12,7 +12,7 @@ class Consultation extends BaseModel
     protected $fillable = [
         'doctor_id',
         'patient_id',
-        'consultation_type',
+        'cons_type',
         'cons_date',
         'cons_time',
     ];
@@ -23,5 +23,13 @@ class Consultation extends BaseModel
     public function setConsDateAttribute($value)
     {
         $this->attributes['cons_date'] = (!empty($value) ? $this->convertStringToDate($value) : null);
+    }
+
+    /**
+     * Relationships
+     */
+    public function proceedings()
+    {
+        return $this->belongsToMany(Proceeding::class);
     }
 }

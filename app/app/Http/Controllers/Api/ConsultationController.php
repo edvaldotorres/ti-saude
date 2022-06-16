@@ -32,7 +32,9 @@ class ConsultationController extends Controller
      */
     public function store(ConsultationRequest $request): JsonResponse
     {
-        Consultation::create($request->validated());
+        $consultation = Consultation::create($request->validated());
+        $consultation->proceedings()->attach($request->get('proceeding_id'));
+
         return $this->created('Consulta criada com sucesso.');
     }
 
