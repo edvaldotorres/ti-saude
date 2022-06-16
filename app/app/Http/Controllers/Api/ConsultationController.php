@@ -69,6 +69,8 @@ class ConsultationController extends Controller
         }
 
         $consultation->update($request->validated());
+        $consultation->proceedings()->sync($request->get('proceeding_id'));
+        
         return $this->successWithArgs($consultation);
     }
 
