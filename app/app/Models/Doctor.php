@@ -7,7 +7,7 @@ use Dyrynda\Database\Support\CascadeSoftDeletes;
 class Doctor extends BaseModel
 {
     use CascadeSoftDeletes;
-    
+
     /**
      * The attributes that are mass assignable.
      *
@@ -33,7 +33,9 @@ class Doctor extends BaseModel
      *
      * @var array<int, string>
      */
-    protected $dates = ['deleted_at'];
+    protected $dates = [
+        'deleted_at'
+    ];
 
     /**
      * Relationships

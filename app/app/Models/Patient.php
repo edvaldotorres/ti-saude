@@ -34,6 +34,16 @@ class Patient extends BaseModel
      *
      * @var array<int, string>
      */
+    protected $dates = [
+        'pat_birth',
+        'deleted_at',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array<int, string>
+     */
     protected $casts = [
         'pat_telephone' => 'array',
     ];
@@ -41,9 +51,9 @@ class Patient extends BaseModel
     /**
      * Accessors & Mutators
      */
-    public function setPatBirthAttribute($value)
+    public function getPatBirthAttribute($value)
     {
-        $this->attributes['pat_birth'] = (!empty($value) ? $this->convertStringToDate($value) : null);
+        return date('d/m/Y', strtotime($value));
     }
 
     /**
