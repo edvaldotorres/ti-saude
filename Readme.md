@@ -55,12 +55,7 @@ chmod -R 777 storage/
 ```sh
 docker exec -it app composer install
 ```
-7. Generate APP_KEY
-
-```sh
-php artisan key:generate
-```
-8. Build the migrate.
+7. Build the migrate.
 
 ```sh
 docker exec -it app php artisan migrate
