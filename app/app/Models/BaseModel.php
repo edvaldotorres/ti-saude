@@ -9,17 +9,4 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class BaseModel extends Model
 {
     use HasFactory, SoftDeletes;
-
-    /**
-     * Accessors & Mutators
-     */
-    protected function convertStringToDate(?string $param)
-    {
-        if (empty($param)) {
-            return null;
-        }
-
-        list($day, $month, $year) = explode('/', $param);
-        return (new \DateTime($year . '-' . $month . '-' . $day))->format('Y-m-d');
-    }
 }

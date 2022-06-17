@@ -20,7 +20,7 @@ class PatientRequest extends BaseRequest
             'pat_name' => 'required|string|max:255',
             'pat_birth' => 'required|date|date_format:d/m/Y',
             'pat_telephone' => 'required|array',
-            'plan_id' => 'required|array|exists:plans,id',
+            'plan_id' => 'array|exists:plans,id',
         ];
     }
 }

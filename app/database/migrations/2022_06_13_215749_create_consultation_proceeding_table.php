@@ -19,7 +19,6 @@ return new class extends Migration
             $table->foreign('consultation_id')->references('id')->on('consultations');
             $table->unsignedBigInteger('proceeding_id');
             $table->foreign('proceeding_id')->references('id')->on('proceedings');
-            $table->timestamps();
         });
     }
 

@@ -7,7 +7,7 @@ use Dyrynda\Database\Support\CascadeSoftDeletes;
 class Consultation extends BaseModel
 {
     use CascadeSoftDeletes;
-    
+
     /**
      * The attributes that are mass assignable.
      *
@@ -35,14 +35,22 @@ class Consultation extends BaseModel
      *
      * @var array<int, string>
      */
-    protected $dates = ['deleted_at'];
+    protected $dates = [
+        'cons_date',
+        'deleted_at',
+    ];
 
     /**
      * Accessors & Mutators
      */
-    public function setConsDateAttribute($value)
+    public function getConsDateAttribute($value)
     {
-        $this->attributes['cons_date'] = (!empty($value) ? $this->convertStringToDate($value) : null);
+        return date('d/m/Y', strtotime($value));
+    }
+
+    public function getConsTimeAttribute($value)
+    {
+        return date('H:i', strtotime($value));
     }
 
     /**

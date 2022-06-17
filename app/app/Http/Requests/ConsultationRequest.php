@@ -17,7 +17,7 @@ class ConsultationRequest extends BaseRequest
             'cons_type' => 'required|in:0,1',
             'cons_date' => 'required|date|date_format:d/m/Y',
             'cons_time' => 'required|date_format:H:i',
-            'proceeding_id' => 'required|array|exists:proceedings,id',
+            'proceeding_id' => 'array|exists:proceedings,id',
         ];
     }
 }
