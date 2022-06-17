@@ -29,7 +29,7 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('registro', 'register');
 });
 
-Route::group(['middleware' => 'jwt.api'], function () {
+Route::middleware('jwt.api')->group(function () {
     Route::apiResources([
         'pacientes' => PatientController::class,
         'especialidades' => SpecialtieController::class,
