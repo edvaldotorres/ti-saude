@@ -45,17 +45,12 @@ cd app
 ```sh
 chmod -R 777 storage/
 ```
-5. Create a database to be used by this project
-
-> #mysql --password=  --execute='create database db'
-> #exit
-
-6. Install the dependencies
+5. Install the dependencies
 
 ```sh
 docker exec -it app composer install
 ```
-7. Build the migrate.
+6. Build the migrate.
 
 ```sh
 docker exec -it app php artisan migrate
